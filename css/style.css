@@ -1814,3 +1814,187 @@ section h2 {
         padding: 20px;
     }
 }
+
+/* ===================================
+   Theme Toggle Button
+   =================================== */
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    order: -1;
+}
+
+.theme-toggle:hover {
+    background: var(--secondary-color);
+    color: white;
+    transform: rotate(360deg);
+}
+
+/* ===================================
+   Dark Mode
+   =================================== */
+body.dark-mode {
+    --text-color: #e0e0e0;
+    --text-light: #b0b0b0;
+    --bg-color: #1a1a2e;
+    --bg-light: #16213e;
+    --bg-dark: #0f3460;
+    --border-color: #2a2a4a;
+    --shadow: 0 2px 10px rgba(0,0,0,0.3);
+    --shadow-lg: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .header {
+    background: #0f0f23;
+}
+
+body.dark-mode .hero {
+    background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+}
+
+body.dark-mode .page-banner {
+    background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+}
+
+body.dark-mode .cta {
+    background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+}
+
+body.dark-mode .coverage-card,
+body.dark-mode .promise-card,
+body.dark-mode .service-card,
+body.dark-mode .strength-card,
+body.dark-mode .stat-item,
+body.dark-mode .advantage-card,
+body.dark-mode .team-card,
+body.dark-mode .feature-item,
+body.dark-mode .option-card,
+body.dark-mode .express-card,
+body.dark-mode .ecom-feature,
+body.dark-mode .payment-card,
+body.dark-mode .bulk-card,
+body.dark-mode .office-card,
+body.dark-mode .info-card,
+body.dark-mode .mv-card,
+body.dark-mode .faq-item,
+body.dark-mode .form-step,
+body.dark-mode .tracking-result,
+body.dark-mode .contact-form-container,
+body.dark-mode .booking-success,
+body.dark-mode .summary-section {
+    background: #16213e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .coverage-card:hover,
+body.dark-mode .promise-card:hover,
+body.dark-mode .service-card:hover,
+body.dark-mode .strength-card:hover,
+body.dark-mode .stat-item:hover,
+body.dark-mode .advantage-card:hover,
+body.dark-mode .team-card:hover,
+body.dark-mode .feature-item:hover,
+body.dark-mode .option-card:hover,
+body.dark-mode .express-card:hover,
+body.dark-mode .ecom-feature:hover,
+body.dark-mode .payment-card:hover,
+body.dark-mode .bulk-card:hover,
+body.dark-mode .office-card:hover,
+body.dark-mode .info-card:hover {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .tab-btn {
+    background: #16213e;
+    border-color: #f39c12;
+    color: #f39c12;
+}
+
+body.dark-mode .tab-btn.active {
+    background: #f39c12;
+    color: #1a1a2e;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea,
+body.dark-mode .pincode-checker input,
+body.dark-mode .tracking-form input {
+    background: #0f3460;
+    border-color: #2a2a4a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group select:focus,
+body.dark-mode .form-group textarea:focus,
+body.dark-mode .pincode-checker input:focus,
+body.dark-mode .tracking-form input:focus {
+    border-color: #f39c12;
+}
+
+body.dark-mode .prev-btn {
+    background: #2a2a4a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .footer {
+    background: #0a0a1a;
+}
+
+body.dark-mode .step-number {
+    background: #16213e;
+    border-color: #2a2a4a;
+    color: #b0b0b0;
+}
+
+body.dark-mode .step.active .step-number {
+    background: #f39c12;
+    border-color: #f39c12;
+    color: #1a1a2e;
+}
+
+body.dark-mode .step.completed .step-number {
+    background: #27ae60;
+    border-color: #27ae60;
+    color: white;
+}
+
+body.dark-mode .timeline-content {
+    background: #16213e;
+}
+
+body.dark-mode .booking-id {
+    background: #0f3460;
+}
+
+body.dark-mode .faq-question {
+    color: #f39c12;
+}
+
+body.dark-mode .faq-answer {
+    color: #b0b0b0;
+}
+
+body.dark-mode .team-avatar {
+    background: #0f3460;
+    border-color: #f39c12;
+}
+
+body.dark-mode .team-avatar i {
+    color: #f39c12;
+}
+
+body.dark-mode .terms-group label {
+    color: #e0e0e0;
+}
