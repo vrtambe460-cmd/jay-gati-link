@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking & Tracking - Jay Gati Link</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-truck"></i>
+                <span>Jay Gati Link</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="booking.html" class="nav-link active">Booking & Tracking</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Booking & Tracking</h1>
+            <p>Book Your Shipment or Track Existing Orders</p>
+        </div>
+    </section>
+
+    <!-- Tabs -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="tracking">
+                    <i class="fas fa-search-location"></i> Track Shipment
+                </button>
+                <button class="tab-btn" data-tab="booking">
+                    <i class="fas fa-shipping-fast"></i> Book Shipment
+                </button>
+            </div>
+
+            <!-- Tracking Section -->
+            <div class="tab-content active" id="tracking">
+                <div class="tracking-container">
+                    <h2>Track Your Shipment</h2>
+                    <p>Enter your Order ID to track the status of your shipment</p>
+                    <div class="tracking-form">
+                        <input type="text" id="order-id" placeholder="Enter Order ID (e.g., JGL-2026-12345)" required>
+                        <button class="btn btn-primary" onclick="trackOrder()">
+                            <i class="fas fa-search"></i> Track
+                        </button>
+                    </div>
+                    
+                    <!-- Tracking Result -->
+                    <div id="tracking-result" class="tracking-result" style="display: none;">
+                        <div class="tracking-info">
+                            <div class="tracking-header">
+                                <h3>Order ID: <span id="track-order-id"></span></h3>
+                                <span class="status-badge" id="track-status"></span>
+                            </div>
+                            <div class="tracking-details">
+                                <div class="detail-row">
+                                    <span><i class="fas fa-box"></i> Package:</span>
+                                    <span id="track-package"></span>
+                                </div>
+                                <div class="detail-row">
+                                    <span><i class="fas fa-map-marker-alt"></i> From:</span>
+                                    <span id="track-from"></span>
+                                </div>
+                                <div class="detail-row">
+                                    <span><i class="fas fa-flag-checkered"></i> To:</span>
+                                    <span id="track-to"></span>
+                                </div>
+                                <div class="detail-row">
+                                    <span><i class="fas fa-calendar"></i> Expected Delivery:</span>
+                                    <span id="track-eta"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tracking Timeline -->
+                        <div class="tracking-timeline">
+                            <h4>Shipment Status</h4>
+                            <div class="timeline">
+                                <div class="timeline-item completed">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Order Placed</span>
+                                        <p>Shipment booked successfully</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item completed">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Picked Up</span>
+                                        <p>Package picked up from sender</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item active">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">In Transit</span>
+                                        <p>Package is on the way</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Out for Delivery</span>
+                                        <p>Package will be delivered soon</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Delivered</span>
+                                        <p>Package delivered successfully</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Section -->
+            <div class="tab-content" id="booking">
+                <div class="booking-container">
+                    <h2>Book Your Shipment</h2>
+                    <p>Fill in the details below to schedule a pickup</p>
+                    
+                    <form id="booking-form" class="booking-form">
+                        <!-- Step Indicator -->
+                        <div class="step-indicator">
+                            <div class="step active" data-step="1">
+                                <span class="step-number">1</span>
+                                <span class="step-label">Goods Details</span>
+                            </div>
+                            <div class="step" data-step="2">
+                                <span class="step-number">2</span>
+                                <span class="step-label">Pickup Details</span>
+                            </div>
+                            <div class="step" data-step="3">
+                                <span class="step-number">3</span>
+                                <span class="step-label">Drop Details</span>
+                            </div>
+                            <div class="step" data-step="4">
+                                <span class="step-number">4</span>
+                                <span class="step-label">Confirm</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 1: Goods Description & Quantity -->
+                        <div class="form-step active" data-step="1">
+                            <h3><i class="fas fa-box"></i> Goods Description & Quantity</h3>
+                            
+                            <div class="form-group">
+                                <label for="goods-type">Type of Goods *</label>
+                                <select id="goods-type" name="goods-type" required>
+                                    <option value="">Select Goods Type</option>
+                                    <option value="documents">Documents</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="clothing">Clothing</option>
+                                    <option value="furniture">Furniture</option>
+                                    <option value="food">Food & Beverages</option>
+                                    <option value="fragile">Fragile Items</option>
+                                    <option value="industrial">Industrial Goods</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="goods-description">Description *</label>
+                                <textarea id="goods-description" name="goods-description" rows="3" required placeholder="Describe the items you want to ship..."></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="quantity">Quantity *</label>
+                                    <input type="number" id="quantity" name="quantity" min="1" required placeholder="Number of packages">
+                                </div>
+                                <div class="form-group">
+                                    <label for="weight">Total Weight (kg) *</label>
+                                    <input type="number" id="weight" name="weight" step="0.1" required placeholder="Total weight in kg">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="length">Length (cm)</label>
+                                    <input type="number" id="length" name="length" placeholder="Length">
+                                </div>
+                                <div class="form-group">
+                                    <label for="width">Width (cm)</label>
+                                    <input type="number" id="width" name="width" placeholder="Width">
+                                </div>
+                                <div class="form-group">
+                                    <label for="height">Height (cm)</label>
+                                    <input type="number" id="height" name="height" placeholder="Height">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="declared-value">Declared Value (INR) *</label>
+                                <input type="number" id="declared-value" name="declared-value" required placeholder="Enter declared value">
+                            </div>
+
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="insurance" id="insurance">
+                                    Add Insurance Coverage
+                                </label>
+                            </div>
+                            
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary next-btn" onclick="nextStep(2)">
+                                    Next: Pickup Details <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Pickup Point Details -->
+                        <div class="form-step" data-step="2">
+                            <h3><i class="fas fa-map-marker-alt"></i> Pickup Point Details</h3>
+                            
+                            <div class="form-group">
+                                <label for="pickup-name">Contact Person Name *</label>
+                                <input type="text" id="pickup-name" name="pickup-name" required placeholder="Name of person at pickup">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="pickup-phone">Contact Number *</label>
+                                <input type="tel" id="pickup-phone" name="pickup-phone" required placeholder="Phone number">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="pickup-address">Pickup Address *</label>
+                                <textarea id="pickup-address" name="pickup-address" rows="2" required placeholder="Full pickup address"></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="pickup-city">City *</label>
+                                    <input type="text" id="pickup-city" name="pickup-city" required placeholder="City">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pickup-state">State *</label>
+                                    <input type="text" id="pickup-state" name="pickup-state" required placeholder="State">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pickup-pincode">Pincode *</label>
+                                    <input type="text" id="pickup-pincode" name="pickup-pincode" maxlength="6" required placeholder="6-digit pincode">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pickup-date">Preferred Pickup Date *</label>
+                                <input type="date" id="pickup-date" name="pickup-date" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pickup-time">Preferred Pickup Time *</label>
+                                <select id="pickup-time" name="pickup-time" required>
+                                    <option value="">Select Time Slot</option>
+                                    <option value="9am-12pm">9:00 AM - 12:00 PM</option>
+                                    <option value="12pm-3pm">12:00 PM - 3:00 PM</option>
+                                    <option value="3pm-6pm">3:00 PM - 6:00 PM</option>
+                                    <option value="6pm-9pm">6:00 PM - 9:00 PM</option>
+                                </select>
+                            </div>
+                            
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary prev-btn" onclick="prevStep(1)">
+                                    <i class="fas fa-arrow-left"></i> Back
+                                </button>
+                                <button type="button" class="btn btn-primary next-btn" onclick="nextStep(3)">
+                                    Next: Drop Details <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Drop Point Details -->
+                        <div class="form-step" data-step="3">
+                            <h3><i class="fas fa-flag-checkered"></i> Drop Point Details</h3>
+                            
+                            <div class="form-group">
+                                <label for="drop-name">Recipient Name *</label>
+                                <input type="text" id="drop-name" name="drop-name" required placeholder="Recipient name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="drop-phone">Contact Number *</label>
+                                <input type="tel" id="drop-phone" name="drop-phone" required placeholder="Recipient phone number">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="drop-address">Delivery Address *</label>
+                                <textarea id="drop-address" name="drop-address" rows="2" required placeholder="Full delivery address"></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="drop-city">City *</label>
+                                    <input type="text" id="drop-city" name="drop-city" required placeholder="City">
+                                </div>
+                                <div class="form-group">
+                                    <label for="drop-state">State *</label>
+                                    <input type="text" id="drop-state" name="drop-state" required placeholder="State">
+                                </div>
+                                <div class="form-group">
+                                    <label for="drop-pincode">Pincode *</label>
+                                    <input type="text" id="drop-pincode" name="drop-pincode" maxlength="6" required placeholder="6-digit pincode">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="delivery-instructions">Delivery Instructions (Optional)</label>
+                                <textarea id="delivery-instructions" name="delivery-instructions" rows="2" placeholder="Any special instructions for delivery..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service-type">Select Service Type *</label>
+                                <select id="service-type" name="service-type" required>
+                                    <option value="">Select Service</option>
+                                    <option value="surface">Surface Shipping (3-7 days)</option>
+                                    <option value="air">Air Shipping (1-3 days)</option>
+                                    <option value="express-same">Express - Same Day</option>
+                                    <option value="express-next">Express - Next Day</option>
+                                    <option value="hyperlocal">Hyperlocal (Within City)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="payment-type">Payment Type *</label>
+                                <select id="payment-type" name="payment-type" required>
+                                    <option value="">Select Payment Type</option>
+                                    <option value="prepaid">Prepaid</option>
+                                    <option value="cod">Cash on Delivery (COD)</option>
+                                    <option value="postpaid">Postpaid (Credit)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" id="cod-amount-group" style="display: none;">
+                                <label for="cod-amount">COD Amount (INR) *</label>
+                                <input type="number" id="cod-amount" name="cod-amount" placeholder="Amount to collect">
+                            </div>
+                            
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary prev-btn" onclick="prevStep(2)">
+                                    <i class="fas fa-arrow-left"></i> Back
+                                </button>
+                                <button type="button" class="btn btn-primary next-btn" onclick="nextStep(4)">
+                                    Review Booking <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Confirmation -->
+                        <div class="form-step" data-step="4">
+                            <h3><i class="fas fa-check-circle"></i> Review & Confirm</h3>
+                            
+                            <div class="booking-summary">
+                                <div class="summary-section">
+                                    <h4>Goods Details</h4>
+                                    <p><strong>Type:</strong> <span id="summary-goods-type"></span></p>
+                                    <p><strong>Description:</strong> <span id="summary-goods-desc"></span></p>
+                                    <p><strong>Quantity:</strong> <span id="summary-quantity"></span> packages</p>
+                                    <p><strong>Weight:</strong> <span id="summary-weight"></span> kg</p>
+                                    <p><strong>Value:</strong> ₹<span id="summary-value"></span></p>
+                                </div>
+                                
+                                <div class="summary-section">
+                                    <h4>Pickup Details</h4>
+                                    <p><strong>Contact:</strong> <span id="summary-pickup-name"></span></p>
+                                    <p><strong>Phone:</strong> <span id="summary-pickup-phone"></span></p>
+                                    <p><strong>Address:</strong> <span id="summary-pickup-address"></span></p>
+                                    <p><strong>Date/Time:</strong> <span id="summary-pickup-time"></span></p>
+                                </div>
+                                
+                                <div class="summary-section">
+                                    <h4>Delivery Details</h4>
+                                    <p><strong>Recipient:</strong> <span id="summary-drop-name"></span></p>
+                                    <p><strong>Phone:</strong> <span id="summary-drop-phone"></span></p>
+                                    <p><strong>Address:</strong> <span id="summary-drop-address"></span></p>
+                                    <p><strong>Service:</strong> <span id="summary-service"></span></p>
+                                    <p><strong>Payment:</strong> <span id="summary-payment"></span></p>
+                                </div>
+                            </div>
+
+                            <div class="terms-group">
+                                <label>
+                                    <input type="checkbox" id="terms-agree" required>
+                                    I agree to the <a href="#" target="_blank">Terms & Conditions</a> and <a href="#" target="_blank">Shipping Policy</a>
+                                </label>
+                            </div>
+                            
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary prev-btn" onclick="prevStep(3)">
+                                    <i class="fas fa-arrow-left"></i> Back
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-check"></i> Confirm Booking
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Booking Success Message -->
+                    <div id="booking-success" class="booking-success" style="display: none;">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h2>Booking Confirmed!</h2>
+                        <p>Your booking has been successfully placed.</p>
+                        <div class="booking-id">
+                            <p>Your Order ID:</p>
+                            <h3 id="new-order-id"></h3>
+                        </div>
+                        <p class="success-note">Please save this Order ID for tracking purposes. You will receive a confirmation SMS and email shortly.</p>
+                        <div class="success-buttons">
+                            <button class="btn btn-primary" onclick="trackNewOrder()">
+                                <i class="fas fa-search"></i> Track Order
+                            </button>
+                            <button class="btn btn-secondary" onclick="newBooking()">
+                                <i class="fas fa-plus"></i> New Booking
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Jay Gati Link</h3>
+                    <p>Your trusted logistics partner delivering excellence across India.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="booking.html">Booking</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="services.html">Domestic Shipping</a>
+                    <a href="services.html">Express Delivery</a>
+                    <a href="services.html">E-Commerce Logistics</a>
+                    <a href="services.html">Hyperlocal</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> info@jaygatilink.com</p>
+                    <p><i class="fab fa-whatsapp"></i> +91 9876543210</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jay Gati Link. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

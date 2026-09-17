@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay Gati Link - Your Trusted Logistics Partner</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-truck"></i>
+                <span>Jay Gati Link</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="booking.html" class="nav-link">Booking & Tracking</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Your Trusted Logistics Partner</h1>
+            <p>Fast, Reliable, and Secure Delivery Solutions Across India</p>
+            <div class="hero-buttons">
+                <a href="booking.html" class="btn btn-primary">Book Now</a>
+                <a href="tracking.html" class="btn btn-secondary">Track Shipment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Motto -->
+    <section class="motto">
+        <div class="container">
+            <h2>Our Motto</h2>
+            <p class="motto-text">"Delivering Excellence, Building Trust"</p>
+        </div>
+    </section>
+
+    <!-- Vision -->
+    <section class="vision">
+        <div class="container">
+            <h2>Our Vision</h2>
+            <p>To become India's most trusted and technologically advanced logistics network, connecting every corner with seamless delivery solutions.</p>
+        </div>
+    </section>
+
+    <!-- Network Coverage -->
+    <section class="coverage">
+        <div class="container">
+            <h2>Current Network Coverage</h2>
+            <div class="coverage-grid">
+                <div class="coverage-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>500+ Cities</h3>
+                    <p>Pan India Network</p>
+                </div>
+                <div class="coverage-card">
+                    <i class="fas fa-warehouse"></i>
+                    <h3>50+ Warehouses</h3>
+                    <p>Strategic Locations</p>
+                </div>
+                <div class="coverage-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>1000+ Vehicles</h3>
+                    <p>Fleet Strength</p>
+                </div>
+                <div class="coverage-card">
+                    <i class="fas fa-users"></i>
+                    <h3>2000+ Employees</h3>
+                    <p>Dedicated Team</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviceable Pincodes -->
+    <section class="pincodes">
+        <div class="container">
+            <h2>Serviceable Pincodes</h2>
+            <p>We deliver to 19,000+ pincodes across India. Enter your pincode to check serviceability.</p>
+            <div class="pincode-checker">
+                <input type="text" id="pincode-input" placeholder="Enter Pincode" maxlength="6">
+                <button class="btn btn-primary" onclick="checkPincode()">Check</button>
+            </div>
+            <div id="pincode-result"></div>
+        </div>
+    </section>
+
+    <!-- Promises -->
+    <section class="promises">
+        <div class="container">
+            <h2>Our Promises</h2>
+            <div class="promises-grid">
+                <div class="promise-card">
+                    <i class="fas fa-satellite-dish"></i>
+                    <h3>Real Time Tracking</h3>
+                    <p>Track your shipment anytime, anywhere with our advanced tracking system.</p>
+                </div>
+                <div class="promise-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast Delivery Network</h3>
+                    <p>Express delivery options with guaranteed timelines for urgent shipments.</p>
+                </div>
+                <div class="promise-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Multiple Courier Partners</h3>
+                    <p>We partner with top courier services to ensure best delivery experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Services -->
+    <section class="quick-services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-truck-loading"></i>
+                    <h3>Domestic Shipping</h3>
+                    <p>Surface & Air delivery across India</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Express Delivery</h3>
+                    <p>Same day & next day delivery</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-store"></i>
+                    <h3>E-Commerce Logistics</h3>
+                    <p>Complete e-commerce solutions</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-map-pin"></i>
+                    <h3>Hyperlocal</h3>
+                    <p>Within city delivery services</p>
+                </div>
+            </div>
+            <a href="services.html" class="btn btn-primary" style="margin-top: 2rem;">View All Services</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Jay Gati Link</h3>
+                    <p>Your trusted logistics partner delivering excellence across India.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="booking.html">Booking</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="services.html">Domestic Shipping</a>
+                    <a href="services.html">Express Delivery</a>
+                    <a href="services.html">E-Commerce Logistics</a>
+                    <a href="services.html">Hyperlocal</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> info@jaygatilink.com</p>
+                    <p><i class="fab fa-whatsapp"></i> +91 9876543210</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jay Gati Link. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
